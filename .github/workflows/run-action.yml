@@ -25,7 +25,7 @@ jobs:
     steps:
       - name: Setup compressor
         id: setup-compressor
-        uses: ixray-team/setup-ixray-compressor@cd93bdece90871c6cb7f95dc022507cee9a8a9b1
+        uses: ixray-team/setup-ixray-compressor@f8e77864859fd2b17aa524fe8f96aa2d34dca61d
         with:
           codebase: '1.6-stcop'
           release: 'latest'
