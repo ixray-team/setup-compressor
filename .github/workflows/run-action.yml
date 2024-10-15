@@ -1,0 +1,35 @@
+name: 'Run action'
+
+on:
+  push:
+    branches:
+      - '**'
+    paths:
+      - '.github/workflows/**'
+      - 'src/**'
+      - 'dist/**'
+      - 'package*.json'
+      - 'action.json'
+
+jobs:
+  setup-latest:
+    name: 'Setup latest'
+
+    strategy:
+      matrix:
+        system:
+          - windows-latest
+
+    runs-on: ${{ matrix.system }}
+
+    steps:
+      - name: Setup compressor
+        id: setup-compressor
+        uses: ixray-team/setup-ixray-compressor@283f4551e2fd3ad4b3e343cf4318a029155bb581
+        with:
+          codebase: '1.6-stcop'
+          release: 'latest'
+
+      - name: Print info
+        run: |
+          xrCompress
