@@ -75936,7 +75936,7 @@ async function run()
         let latestRelease = release;
         if (release === "latest")
         {
-            latestRelease = await extractRelease();
+            latestRelease = await extractRelease(codebase);
         }
 
         const branch = getBranch(codebase);
