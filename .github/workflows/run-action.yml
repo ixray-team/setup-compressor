@@ -32,4 +32,6 @@ jobs:
 
       - name: Print info
         run: |
-          xrCompress
+          curl -o datapack.ltx https://raw.githubusercontent.com/ixray-team/ixray-1.6-stcop/refs/heads/default/datapack.ltx
+          mkdir folder
+          xrCompress folder -ltx datapack.ltx
