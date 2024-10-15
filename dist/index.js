@@ -75943,7 +75943,7 @@ async function run()
         const architecture = getArchitecture().toString();
         const url =
             release === "latest"
-                ? `https://github.com/ixray-team/ixray-${codebase}/releases/latest/download/ixray-${branch}-r${latestRelease}-utilities-${architecture}-release-bin.zip`
+                ? `https://github.com/ixray-team/ixray-${codebase}/releases/latest/download/ixray-${branch}-${latestRelease}-utilities-${architecture}-release-bin.zip`
                 : `https://github.com/ixray-team/ixray-${codebase}/releases/download/r${release}/ixray-${branch}-r${release}-utilities-${architecture}-release-bin.zip`;
         _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(`branch: ${branch}`);
         _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(`architecture: ${architecture}`);
