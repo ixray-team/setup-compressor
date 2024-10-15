@@ -1,0 +1,16 @@
+name: 'Setup IX-Ray Compressor'
+description: 'Action for installing and configuring IX-Ray Compressor utility to PATH of the runner'
+author: 'acidicMercury8'
+
+inputs:
+  codebase:
+    description: 'Branch of IX-Ray'
+    required: true
+  release:
+    description: 'Release of IX-Ray'
+    required: true
+    default: 'latest'
+
+runs:
+  using: node20
+  main: dist/index.js
