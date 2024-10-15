@@ -1,0 +1,19 @@
+# Global attributes for forcing line endings normalization of specific files
+
+* text=auto
+
+# Generated files
+dist/** -diff linguist-generated=true
+
+# Configs
+.gitattributes text eol=lf encoding=utf-8
+.gitignore     text eol=lf encoding=utf-8
+*.json         text eol=lf encoding=utf-8
+*.yml          text eof=lf encoding=utf-8
+*.yaml         text eof=lf encoding=utf-8
+
+# Sources
+*.js text eol=lf encoding=utf-8
+
+# Documents
+*.md text eol=crlf encoding=utf-8

@@ -1,0 +1,32 @@
+{
+    "tabWidth": 4,
+    "useTabs": false,
+    "printWidth": 100,
+    "semi": true,
+    "trailingComma": "none",
+    "arrowParens": "always",
+    "endOfLine": "lf",
+    "overrides": [
+        {
+            "files": ["package*.json"],
+            "options": {
+                "tabWidth": 2
+            }
+        },
+        {
+            "files": ["*.yml", "*.yaml"],
+            "options": {
+                "tabWidth": 2,
+                "singleQuote": true
+            }
+        },
+        {
+            "files": ["*.js"],
+            "options": {
+                "tabWidth": 4,
+                "plugins": ["prettier-plugin-brace-style"],
+                "braceStyle": "allman"
+            }
+        }
+    ]
+}

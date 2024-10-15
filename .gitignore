@@ -1,0 +1,12 @@
+# Global ignoring of different binaries and another temporary files
+
+# Dependencies
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# macOS cache
+.DS_Store

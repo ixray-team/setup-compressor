@@ -1,0 +1,12 @@
+{
+    "folders": [
+        {
+            "name": "Setup IX-Ray Compressor",
+            "path": "."
+        }
+    ],
+    "settings": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "redhat.telemetry.enabled": false
+    }
+}

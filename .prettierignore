@@ -1,0 +1,7 @@
+# Global ignoring of different binaries and another temporary files
+
+# Generated files
+dist/
+
+# Dependencies
+node_modules/

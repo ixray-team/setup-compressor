@@ -1,0 +1,29 @@
+{
+    "name": "Setup IX-Ray Compressor",
+    "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
+    "postCreateCommand": "npm install",
+    "features": {
+        "ghcr.io/devcontainers/features/github-cli:1": {},
+        "ghcr.io/devcontainers-contrib/features/prettier:1": {}
+    },
+    "customizations": {
+        "codespaces": {
+            "openFiles": [
+                "README.md"
+            ]
+        },
+        "vscode": {
+            "extensions": [
+                "EditorConfig.EditorConfig",
+                "DavidAnson.vscode-markdownlint",
+                "redhat.vscode-yaml",
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode"
+            ],
+            "settings": {
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+                "redhat.telemetry.enabled": false
+            }
+        }
+    }
+}
