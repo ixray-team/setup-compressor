@@ -1,4 +1,4 @@
-name: 'Setup IX-Ray Compressor'
+name: 'Setup Compressor (IX-Ray)'
 description: 'Action for installing and configuring IX-Ray Compressor utility to PATH of the runner'
 author: 'acidicMercury8'
 

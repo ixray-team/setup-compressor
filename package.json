@@ -1,5 +1,5 @@
 {
-  "name": "setup-ixray-compressor",
+  "name": "setup-compressor",
   "version": "0.1.0",
   "description": "Action for installing and configuring IX-Ray Compressor utility to PATH of the runner",
   "author": "acidicMercury8",
@@ -16,13 +16,13 @@
     "pack": "npx ncc build src/index.js -o dist --source-map --license licenses.txt",
     "pack:watch": "npm run package -- --watch"
   },
-  "homepage": "https://github.com/ixray-team/setup-ixray-compressor#readme",
+  "homepage": "https://github.com/ixray-team/setup-compressor#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ixray-team/setup-ixray-compressor.git"
+    "url": "git+https://github.com/ixray-team/setup-compressor.git"
   },
   "bugs": {
-    "url": "https://github.com/ixray-team/setup-ixray-compressor/issues"
+    "url": "https://github.com/ixray-team/setup-compressor/issues"
   },
   "exports": {
     ".": "./dist/index.js"
