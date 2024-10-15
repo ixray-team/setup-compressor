@@ -1,0 +1,46 @@
+{
+  "name": "setup-ixray-compressor",
+  "version": "0.1.0",
+  "description": "Action for installing and configuring IX-Ray Compressor utility to PATH of the runner",
+  "author": "acidicMercury8",
+  "license": "MIT",
+  "keywords": [
+    "GitHub",
+    "Actions",
+    "JavaScript"
+  ],
+  "scripts": {
+    "format:write": "npx prettier --write .",
+    "format:check": "npx prettier --check .",
+    "lint": "npx eslint .",
+    "pack": "npx ncc build src/index.js -o dist --source-map --license licenses.txt",
+    "pack:watch": "npm run package -- --watch"
+  },
+  "homepage": "https://github.com/ixray-team/setup-ixray-compressor#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ixray-team/setup-ixray-compressor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ixray-team/setup-ixray-compressor/issues"
+  },
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "@actions/github": "^6.0.0",
+    "@actions/io": "^1.1.3",
+    "compressing": "^1.10.1",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.2",
+    "eslint": "^9.12.0",
+    "prettier": "^3.3.2",
+    "prettier-plugin-brace-style": "^0.7.0"
+  }
+}
