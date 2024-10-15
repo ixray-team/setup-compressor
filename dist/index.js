@@ -75800,6 +75800,37 @@ __nccwpck_require__.r(__webpack_exports__);
 
 
 
+async function extractRelease(input)
+{
+    return new Promise((resolve, reject) =>
+    {
+        request__WEBPACK_IMPORTED_MODULE_5__.get({
+            url: `https://github.com/ixray-team/ixray-${input}/releases/latest`,
+            followRedirect: false
+        },
+        (error, response, body) =>
+        {
+            if (error)
+            {
+                reject(error);
+                return;
+            }
+
+            if (response.statusCode === 302)
+            {
+                const strings = response.headers.location.split('/');
+                const release = strings[strings.length - 1];
+                _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(`release: ${release}`);
+                resolve(release);
+            }
+            else
+            {
+                reject(new Error(`Recieved ${response.statusCode} from ${url}`));
+            }
+        });
+    });
+}
+
 function getBranch(input)
 {
     switch (input)
@@ -75902,11 +75933,17 @@ async function run()
         const release = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("release");
         _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(`release: ${release}`);
 
+        let latestRelease = release;
+        if (release === "latest")
+        {
+            latestRelease = await extractRelease();
+        }
+
         const branch = getBranch(codebase);
         const architecture = getArchitecture().toString();
         const url =
             release === "latest"
-                ? `https://github.com/ixray-team/ixray-${codebase}/releases/latest/download/ixray-${branch}-r${release}-utilities-${architecture}-release-bin.zip`
+                ? `https://github.com/ixray-team/ixray-${codebase}/releases/latest/download/ixray-${branch}-r${latestRelease}-utilities-${architecture}-release-bin.zip`
                 : `https://github.com/ixray-team/ixray-${codebase}/releases/download/r${release}/ixray-${branch}-r${release}-utilities-${architecture}-release-bin.zip`;
         _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(`branch: ${branch}`);
         _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(`architecture: ${architecture}`);
