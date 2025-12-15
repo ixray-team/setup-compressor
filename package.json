@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@vercel/ncc": "^0.38.4",
-    "eslint": "^9.39.1",
+    "eslint": "^9.39.2",
     "prettier": "^3.7.4",
     "prettier-plugin-brace-style": "^0.8.2"
   }
