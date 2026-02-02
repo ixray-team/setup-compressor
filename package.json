@@ -34,7 +34,7 @@
     "@actions/core": "^2.0.2",
     "@actions/github": "^9.0.0",
     "@actions/io": "^2.0.0",
-    "compressing": "^2.0.0",
+    "compressing": "^2.1.0",
     "request": "^2.88.2"
   },
   "devDependencies": {
