@@ -41,6 +41,6 @@
     "@vercel/ncc": "^0.38.4",
     "eslint": "^10.1.0",
     "prettier": "^3.8.1",
-    "prettier-plugin-brace-style": "^0.10.0"
+    "prettier-plugin-brace-style": "^0.10.1"
   }
 }
