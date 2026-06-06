@@ -150,8 +150,8 @@ async function run()
         const architecture = getArchitecture().toString();
         const url =
             release === "latest"
-                ? `https://github.com/ixray-team/ixray-${codebase}/releases/latest/download/ixray-${branch}-${latestRelease}-utilities-${architecture}-release-bin.zip`
-                : `https://github.com/ixray-team/ixray-${codebase}/releases/download/r${release}/ixray-${branch}-r${release}-utilities-${architecture}-release-bin.zip`;
+                ? `https://github.com/ixray-team/ixray-${codebase}/releases/latest/download/ixray-${branch}-${latestRelease}-utilities-${architecture}-mixed-bin.zip`
+                : `https://github.com/ixray-team/ixray-${codebase}/releases/download/r${release}/ixray-${branch}-r${release}-utilities-${architecture}-mixed-bin.zip`;
         core.debug(`branch: ${branch}`);
         core.debug(`architecture: ${architecture}`);
         core.debug(`url: ${url}`);
@@ -165,7 +165,7 @@ async function run()
         const buffer = await downloadAsBuffer(url);
         await compressing.zip.uncompress(buffer, temp);
 
-        await moveFiles(path.join(temp, "bin", "Release"), destionation);
+        await moveFiles(path.join(temp, "bin", "RelWithDebInfo"), destionation);
         io.rmRF(temp);
 
         const filename = "xrCompress.exe";

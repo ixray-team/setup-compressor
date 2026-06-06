@@ -75959,8 +75959,8 @@ async function run()
         const architecture = getArchitecture().toString();
         const url =
             release === "latest"
-                ? `https://github.com/ixray-team/ixray-${codebase}/releases/latest/download/ixray-${branch}-${latestRelease}-utilities-${architecture}-release-bin.zip`
-                : `https://github.com/ixray-team/ixray-${codebase}/releases/download/r${release}/ixray-${branch}-r${release}-utilities-${architecture}-release-bin.zip`;
+                ? `https://github.com/ixray-team/ixray-${codebase}/releases/latest/download/ixray-${branch}-${latestRelease}-utilities-${architecture}-mixed-bin.zip`
+                : `https://github.com/ixray-team/ixray-${codebase}/releases/download/r${release}/ixray-${branch}-r${release}-utilities-${architecture}-mixed-bin.zip`;
         _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(`branch: ${branch}`);
         _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(`architecture: ${architecture}`);
         _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(`url: ${url}`);
@@ -75974,7 +75974,7 @@ async function run()
         const buffer = await downloadAsBuffer(url);
         await compressing__WEBPACK_IMPORTED_MODULE_6__.zip.uncompress(buffer, temp);
 
-        await moveFiles(path__WEBPACK_IMPORTED_MODULE_7__.join(temp, "bin", "Release"), destionation);
+        await moveFiles(path__WEBPACK_IMPORTED_MODULE_7__.join(temp, "bin", "RelWithDebInfo"), destionation);
         _actions_io__WEBPACK_IMPORTED_MODULE_2__.rmRF(temp);
 
         const filename = "xrCompress.exe";
