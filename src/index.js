@@ -1,41 +1,29 @@
+import { Buffer } from "node:buffer";
 import * as core from "@actions/core";
 import * as github from "@actions/github";
 import * as io from "@actions/io";
 import * as os from "os";
 import * as fs from "fs";
-import * as request from "request";
 import * as compressing from "compressing";
 import * as path from "path";
 
 async function extractRelease(input)
 {
-    return new Promise((resolve, reject) =>
-    {
-        request.get({
-            url: `https://github.com/ixray-team/ixray-${input}/releases/latest`,
-            followRedirect: false
-        },
-        (error, response, body) =>
-        {
-            if (error)
-            {
-                reject(error);
-                return;
-            }
-
-            if (response.statusCode === 302)
-            {
-                const strings = response.headers.location.split('/');
-                const release = strings[strings.length - 1];
-                core.debug(`release: ${release}`);
-                resolve(release);
-            }
-            else
-            {
-                reject(new Error(`Recieved ${response.statusCode} from ${url}`));
-            }
-        });
+    const url = `https://github.com/ixray-team/ixray-${input}/releases/latest`;
+    const response = await fetch(url, {
+        redirect: "manual"
     });
+
+    if (response.status === 302)
+    {
+        const location = response.headers.get("location");
+        const strings = location.split("/");
+        const release = strings[strings.length - 1];
+        core.debug(`release: ${release}`);
+        return release;
+    }
+
+    throw new Error(`Received ${response.status} from ${url}`);
 }
 
 function getBranch(input)
@@ -65,28 +53,16 @@ function getArchitecture()
 
 async function downloadAsBuffer(url)
 {
-    return new Promise((resolve, reject) =>
-    {
-        core.info(`Downloading file ${url}`);
-        request.get({ url, encoding: null }, (error, responce, body) =>
-        {
-            if (error)
-            {
-                reject(error);
-                return;
-            }
+    core.info(`Downloading file ${url}`);
+    const response = await fetch(url);
 
-            if (responce.statusCode >= 400)
-            {
-                reject(new Error(`Recieved ${responce.statusCode} from ${url}`));
-            }
-            else
-            {
-                core.info(`Download complete`);
-                resolve(body);
-            }
-        });
-    });
+    if (!response.ok)
+    {
+        throw new Error(`Received ${response.status} from ${url}`);
+    }
+
+    core.info(`Download complete`);
+    return Buffer.from(await response.arrayBuffer());
 }
 
 function moveFiles(sourceDirectory, destionationDirectory)

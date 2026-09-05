@@ -28,14 +28,13 @@
     ".": "./dist/index.js"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=24"
   },
   "dependencies": {
     "@actions/core": "^3.0.1",
     "@actions/github": "^9.1.1",
     "@actions/io": "^3.0.2",
-    "compressing": "^2.1.3",
-    "request": "^2.88.2"
+    "compressing": "^2.1.3"
   },
   "devDependencies": {
     "@vercel/ncc": "^0.45.0",
