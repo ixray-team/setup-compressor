@@ -22,7 +22,7 @@ List of available inputs:
 ## Example usage
 
 ```yaml
-uses: ixray-team/setup-compressor@v0.1
+uses: ixray-team/setup-compressor@v0.3
 with:
   codebase: '1.6-stcop'
   release: '1.0'

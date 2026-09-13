@@ -1,6 +1,6 @@
 name: 'Setup Compressor (IX-Ray)'
 description: 'Action for installing and configuring IX-Ray Compressor utility to PATH of the runner'
-author: 'acidicMercury8'
+author: 'acidicMercury8, IX-Ray Team'
 
 inputs:
   codebase:
